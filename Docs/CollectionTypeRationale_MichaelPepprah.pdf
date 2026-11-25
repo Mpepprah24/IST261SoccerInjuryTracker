@@ -1,0 +1,61 @@
+================================================================================
+                    SOCCER INJURY TRACKER
+            Collection Type Rationale - HashMap
+================================================================================
+
+Student: Michael P.
+Assignment: M08-A02 - Identify and Implement a Collection
+Date: April 14, 2026
+
+================================================================================
+RATIONALE FOR CHOOSING HASHMAP
+================================================================================
+
+For my Soccer Injury Tracker application, I chose to implement a HashMap to 
+manage player injuries. The HashMap maps a Player ID (String key) to an 
+ArrayList of Injury objects (value). This collection type was selected based on 
+the specific performance requirements of injury tracking in a soccer 
+environment.
+
+Key Performance Advantages of HashMap:
+
+1. O(1) Lookup Time: The primary operation needed for injury management is
+   quickly finding all injuries for a specific player. HashMap provides
+   constant-time performance for get() and put() operations, assuming a good
+   hash function. This is critical when a medical staff member needs to
+   instantly view a player's complete injury history during an emergency.
+
+2. Unique Key Constraint: Each player has a unique player ID, making it a
+   perfect natural key for HashMap. No two players share the same ID, which
+   aligns perfectly with HashMap's requirement for unique keys.
+
+3. Fast Insertion and Deletion: When a new injury is recorded for a player,
+   HashMap allows O(1) insertion into the existing ArrayList. Similarly,
+   removing a player's injury record is efficient.
+
+4. Comparison with Other Collections:
+
+   - ArrayList: Would require O(n) linear search to find a player's injuries,
+     which becomes slower as more players are added to the system.
+
+   - TreeMap: Would provide O(log n) lookup, which is slower than HashMap's
+     O(1) for this use case where ordering by player name is not required.
+
+   - HashSet: Cannot store multiple values per key, making it unsuitable for
+     tracking multiple injuries per player over time.
+
+5. Real-World Application Need: In a soccer injury tracking system, medical
+   staff frequently need to:
+   - Look up a player's injury history instantly during matches
+   - Add new injuries as they occur in real-time
+   - Remove resolved injuries from the record
+   - Search for players by their unique ID number
+
+HashMap directly supports all these operations with optimal performance.
+
+Conclusion: HashMap is the ideal collection type for this injury tracking
+scenario because it provides O(1) key-based lookup, supports unique keys,
+allows multiple values per key through ArrayList values, and directly maps
+to the real-world requirement of finding a player's injuries by their unique ID.
+
+================================================================================
